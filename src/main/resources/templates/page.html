@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<!-- 
+<script	src="./js/jquery-2.1.1.min.js"></script>
+ -->
+</head>
+
+<body>
+<form action="#" th:action="@{save.do}" th:object="${pageModel}" method="post">
+
+	Please enter your name and pick the Sectors you are currently involved in.
+<br>
+<br>
+Name: 
+
+<input th:field="*{id}" type="hidden" >
+<input th:field="*{name}" type="text" required="required">
+
+<br>
+<br>
+Sectors: 
+
+ 
+	
+	
+	<select th:field="*{selectedSectors}"   multiple="" size="25" required="required">
+	
+	  <option th:each="sector:  ${sectors}"                                       
+                    th:value="${sector.id}"
+                    th:utext="${sector.nameWithSpaces}"
+                   
+                    >                    
+            </option>
+            
+            
+</select>
+
+<br>
+<br>
+<input th:field="*{agreed}" type="checkbox" required="required"> Agree to terms
+
+<br>
+<br>
+
+<input type="submit" value="Save">
+
+</form>
+</body>
+
+</html>
